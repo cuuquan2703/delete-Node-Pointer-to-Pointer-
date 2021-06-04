@@ -1,0 +1,25 @@
+void deletenode(Node** head, int key)
+{
+
+	Node* temp = *head;
+	Node* prev = NULL;
+	if (temp != NULL && temp->data == key)
+	{
+		*head = temp->Next;
+		delete temp;
+		return;
+	}
+	else
+	{
+		while (temp != NULL && temp->data != key)
+		{
+			prev = temp;
+			temp = temp->Next;
+		}
+		if (temp == NULL) return;
+		prev->Next = temp->Next;
+		delete temp;
+	}
+
+
+}
